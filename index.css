@@ -34,23 +34,24 @@ nav {
 }
 
 .nav_contact_link {
-    height: 5vh;
-    padding: 0.75ch 1.5vw;
-    border: 1px solid white;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3 ease;
+    font-size: 2vw; /* Match the font size of "Data Engineer" */
+    font-weight: normal; /* Match the weight of "Data Engineer" */
+    color: white; /* Ensure consistent color */
+    border: none; /* Remove border for a plain text look */
+    padding: 0; /* Remove padding to match inline text */
+    cursor: pointer; /* Keep the pointer for interactivity */
+    text-decoration: none; /* Remove underline or other styles */
+    transition: color 0.3s ease; /* Add a hover effect */
 }
 
 .nav_contact_link:hover {
-    background-color: white;
-    color: black;
+    color: #007bff; /* Optional: Add a hover color effect */
 }
 
 .sub_hero_text {
     display: flex;
     justify-content: flex-end;
-    font-size: 1vw;
+    font-size: 1.5vw;
     font-weight: 400;
 }
 
