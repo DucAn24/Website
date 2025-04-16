@@ -6,16 +6,20 @@
     <link rel="icon" type="image/x-icon" href="site.jpg">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="index.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+        emailjs.init("c8E1cbWYBUR_eolkG"); // Replace with your actual EmailJS user ID
+      })();
+    </script>
   </head>
   <body>
     <div class="home_section">
       <nav>
         <span> he he</span>
-        <span class="nav-link" onclick="scrollToProjects()">Project</span>
-        <Span>
-          Data Engineer
-        </Span>
-        <span class="nav_contact_link">Contact</span>
+        <span class="nav-link" onclick="scrollToProjects()">Projects</span>
+        <span>Data Engineer</span>
+        <span class="nav_contact_link" onclick="scrollToContact()">Contact</span>
       </nav>
 
       <span class="sub_hero_text">
@@ -34,73 +38,97 @@
 
     <div id="projects_section" class="projects_section">
         <span class="project_title">My Projects</span>
-        
-        <div class="projects_container">
-            <div class="project project1">
-                <span>01</span>
-
-                <a href="https://survey-gkcrfjx0.b4a.run/">
-                    <img src="assets/img/survey.png" alt="Survey Project" />
-                    <h3 class="project-title">Survey System</h3>
-                </a>
-            </div>
-            <div class="sub_container">
-                <div class="project project2">
-                    <span>02</span>
-                    <a href="https://cart2-8ew430o1.b4a.run/">
-                        <img src="assets/img/cart.png" alt="Shopping Cart" />
-                        <h3 class="project-title">Shopping Cart</h3>
-                    </a>
-    
+        <div class="project-block">
+            <div class="project-row">
+                <div class="project-img">
+                    <img src="assets/img/Medallion-Architecture-High-Level-Data-flow.png" alt="Medallion Architecture" />
                 </div>
-                <div class="project project3">
-                    <span>03</span>
-                    <a href="https://useradminjpa-zdp9oonm.b4a.run/">
-                        <img src="assets/img/admin.png" alt="User Admin JPA" />
-                        <h3 class="project-title">User Admin JPA</h3>
-                    </a>
-                </div>
-                <div class="project project4">
-                    <span>04</span>
-                    <a href="https://sqlgateway-hdph1xnf.b4a.run/">
-                        <img src="assets/img/sql.png" alt="SQL Gateway" />
-                        <h3 class="project-title">SQL Gateway</h3>
-                    </a>
-                </div>
-                <div class="project project5">
-                    <span>05</span>
-                    <a href="https://emailjpa-b8gvgw8e.b4a.run/">
-                        <img src="assets/img/emailjpa.png" alt="Email JPA" />
-                        <h3 class="project-title">Email JPA</h3>
-                    </a>
-                </div>
-                <div class="project project6">
-                    <span>06</span>
-                    <a href="https://email1-h9hu8vf2.b4a.run/">
-                        <img src="assets/img/email.png" alt="Email" />
-                        <h3 class="project-title">Email</h3>
-                    </a>
-                </div>
-                <div class="project project7">
-                    <span>07</span>
-                    <a href="https://mail-vfgghldl.b4a.run/">
-                        <img src="assets/img/javamail.png" alt="Java Mail" />
-                        <h3 class="project-title">Java Mail</h3>
-                    </a>
+                <div class="project-info">
+                    <h3 class="project-title">Data Warehouse Medallion Architecture</h3>
+                    <p class="project-description">
+                        Build a modern data warehouse for Northwind using the Medallion architecture (Bronze, Silver, Gold). Focus on ETL, data modeling, normalization, and analytics reporting with SQL Server.<br>
+                        <b>Role:</b> Architecture design, ETL pipeline development, analytical data modeling.<br>
+                        <b>Tech:</b> SQL Server, T-SQL, Power BI
+                    </p>
+                    <a class="project-link" href="https://github.com/DucAn24/dwh-medallion-architecture" target="_blank">View on GitHub</a>
                 </div>
             </div>
         </div>
-        
-
+        <div class="project-block">
+            <div class="project-row reverse">
+                <div class="project-img">
+                    <img src="assets/img/data_architecture.png" alt="ETL Pipeline Spark Airflow" />
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">ETL Pipeline with Spark & Airflow</h3>
+                    <p class="project-description">
+                        Automated ETL pipeline with Apache Spark, Airflow, and HDFS. Data is processed, transformed, and stored for large-scale analytics.<br>
+                        <b>Role:</b> ETL flow design, Spark job implementation, workflow management with Airflow.<br>
+                        <b>Tech:</b> Apache Spark, Airflow, HDFS, Docker
+                    </p>
+                    <a class="project-link" href="https://github.com/DucAn24/etl-pipeline-spark-hdfs-airflow" target="_blank">View on GitHub</a>
+                </div>
             </div>
-            <script>
-              function scrollToProjects() {
-                  document.getElementById('projects_section').scrollIntoView({ behavior: 'smooth' });
-              }
-          </script>
         </div>
     </div>
 
+
+
+    <div id="contact_section" class="contact_section">
+      <div class="contact-card">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out for collaboration or any questions!</p>
+        <form id="contact-form" class="contact-form">
+          <input id="name" name="name" type="text" placeholder="Your Name" required />
+          <input id="email" name="email" type="email" placeholder="Your Email" required />
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+          <div id="form-status" style="margin-top: 10px;"></div>
+        </form>
+        <div class="contact-info">
+          <span>Email: <a href="mailto:annguyen2422004@gmail.com">annguyen2422004@gmail.com</a></span>
+          <span>LinkedIn: <a href="https://www.linkedin.com/in/nguyenducan242/">linkedin.com/in/nguyenducan242</a></span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function scrollToProjects() {
+          document.getElementById('projects_section').scrollIntoView({ behavior: 'smooth' });
+      }
+      function scrollToContact() {
+          document.getElementById('contact_section').scrollIntoView({ behavior: 'smooth' });
+      }
+      
+      // Contact form handling
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const statusDiv = document.getElementById('form-status');
+        statusDiv.textContent = "Sending message...";
+        
+        const templateParams = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          message: document.getElementById('message').value,
+          to_email: "annguyen2422004@gmail.com"
+        };
+        
+        emailjs.send('service_a412krk', 'template_za5c0hk', templateParams)
+          .then(function(response) {
+            statusDiv.textContent = "Message sent successfully!";
+            statusDiv.style.color = "green";
+            document.getElementById('contact-form').reset();
+            setTimeout(() => {
+              statusDiv.textContent = "";
+            }, 5000);
+          }, function(error) {
+            statusDiv.textContent = "Failed to send message. Please try again.";
+            statusDiv.style.color = "red";
+            console.error("EmailJS Error:", error);
+          });
+      });
+    </script>
 
     <div class="footer">
         <span class="footer_title">

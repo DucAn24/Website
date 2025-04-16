@@ -145,10 +145,11 @@ nav {
 
 .projects_container{
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: grid;
     grid-template-columns: 35vw 1fr;
     grid-gap: 1vw;
+    margin-top: 2vh;
 }
 
 .sub_container{
@@ -160,6 +161,91 @@ nav {
 .project{
     position: relative;
     padding: 1vw;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,123,255,0.2);
+}
+
+.project img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+    transition: filter 0.3s ease, transform 0.5s ease;
+}
+
+.project:hover img {
+    filter: brightness(0.3);
+    transform: scale(1.05);
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5vw;
+    color: white;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project:hover .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-title {
+    font-family: "Anton", sans-serif;
+    font-size: 1.8vw;
+    margin-bottom: 1vh;
+    text-transform: uppercase;
+}
+
+.project-description {
+    font-family: "Poppins", sans-serif;
+    font-size: 1vw;
+    margin-bottom: 1.5vh;
+    line-height: 1.4;
+}
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5vw;
+}
+
+.project-tech-stack span {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8vw;
+    background: rgba(255,255,255,0.2);
+    padding: 0.3vw 0.6vw;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.project-tech-stack span:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+.project-large .project-title {
+    font-size: 2.5vw;
+}
+
+.project-large .project-description {
+    font-size: 1.2vw;
+    width: 80%;
 }
 
 .projects_container span{
@@ -170,61 +256,109 @@ nav {
     bottom: 0;
 }
 
-.project img{
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.5);
-}
-
 .contact_section{
     width: 100vw;
-    height: 100vh;
-    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(120deg, #181820 60%, #23233a 100%);
+    padding: 0;
+    margin-top: 20vw; 
 }
 
-.contact_section span{
-    position: absolute;
-    cursor: pointer;
+.contact-card {
+    background: rgba(30,30,40,0.95);
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    padding: 3vw 5vw;
+    max-width: 420px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vw;
 }
 
-.contact_section span:nth-child(1){
-    top: 20%;
-    left: 15%;
+.contact-card h2 {
+    font-family: "Anton", sans-serif;
+    font-size: 2.2vw;
+    margin-bottom: 0.5vw;
+    color: #00bfff;
+    letter-spacing: 1px;
 }
 
-.contact_section span:nth-child(2){
-    top: 20%;
-    right: 15%;
+.contact-card p {
+    font-size: 1.1vw;
+    color: #eee;
+    margin-bottom: 1vw;
+    text-align: center;
 }
 
-.contact_section span:nth-child(3){
-    top: 75%;
-    left: 15%;
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
 }
 
-.contact_section span:nth-child(4){
-    top: 75%;
-    right: 15%;
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.7vw 1vw;
+    border-radius: 8px;
+    border: none;
+    background: #23233a;
+    color: #fff;
+    font-size: 1vw;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 0.5vw;
+    resize: none;
 }
 
-.contact_section span:nth-child(5){
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    border: 1px solid white;
-    padding: 1vw 1.5vw;
+.contact-form textarea {
+    min-height: 80px;
+    max-height: 200px;
+}
+
+.contact-form button {
+    background: #00bfff;
+    color: #fff;
+    border: none;
     border-radius: 20px;
+    padding: 0.7vw 2vw;
+    font-size: 1.1vw;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
-.contact_section span:nth-child(5):hover{
-    background-color: white;
-    color: black;
+.contact-form button:hover {
+    background: #0099cc;
 }
+
+.contact-info {
+    margin-top: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    font-size: 1vw;
+    color: #ccc;
+    align-items: flex-start;
+}
+
+.contact-info a {
+    color: #00bfff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-info a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
 
 .footer{
     width: 100vw;
@@ -313,4 +447,136 @@ nav {
     padding: 5px 10px;
     border-radius: 3px;
     z-index: 2;
+}
+
+.project-block {
+    width: 100%;
+    margin: 3vw 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
+    width: 80vw;
+    max-width: 1100px;
+    background: rgba(30,30,40,0.7);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    padding: 2vw 2vw;
+    transition: box-shadow 0.3s;
+}
+
+.project-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.project-img {
+    flex: 1 1 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    max-width: 400px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    background: #181820;
+    transition: transform 0.3s;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s, filter 0.3s;
+}
+
+.project-row:hover .project-img img {
+    transform: scale(1.05) rotate(-2deg);
+    filter: brightness(0.92) contrast(1.08);
+}
+
+.project-info {
+    flex: 1 1 60%;
+    padding: 1vw 2vw;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    position: static;
+    background: none;
+}
+
+.project-title {
+    font-family: "Anton", sans-serif;
+    font-size: 2vw;
+    margin-bottom: 0.5vw;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: static;
+    background: none;
+    color: #fff;
+    padding: 0;
+    z-index: 1;
+}
+
+.project-description {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.1vw;
+    line-height: 1.6;
+    margin-bottom: 0.5vw;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 0.5vw;
+    font-size: 1vw;
+    color: #00bfff;
+    background: rgba(0,191,255,0.08);
+    padding: 0.5vw 1.2vw;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.project-link:hover {
+    background: #00bfff;
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .project-row, .project-row.reverse {
+        flex-direction: column !important;
+        width: 96vw;
+        padding: 4vw 2vw;
+        gap: 2vw;
+    }
+    .project-img {
+        max-width: 90vw;
+        height: 180px;
+    }
+    .project-title {
+        font-size: 4vw;
+    }
+    .project-description, .project-link {
+        font-size: 2.5vw;
+    }
+    .contact-card {
+        padding: 6vw 3vw;
+        max-width: 98vw;
+    }
+    .contact-card h2 {
+        font-size: 5vw;
+    }
+    .contact-card p, .contact-form input, .contact-form textarea, .contact-form button, .contact-info {
+        font-size: 3vw;
+    }
 }
