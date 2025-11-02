@@ -134,8 +134,11 @@ nav {
 .projects_section{
     font-family: "Anton", sans-serif;
     width: 100vw;
-    height: 100vh;
+    min-height: auto;
     padding: 5vh 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
 }
 
 .project_title{
